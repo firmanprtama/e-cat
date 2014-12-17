@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<!-- Script Tampilan-->
+<html>
+    <head>
+        <title>e-Catalog Mobile SLiMS</title>
+
+        <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+        <meta name="kik-transparent-statusbar" content="true">
+        <link rel="stylesheet" href="css/baseAndroid.css">
+        <link rel="stylesheet" href="css/appAndroid.css">
+        <style>
+            ul.colour-picker li {
+                position: relative;
+                display: block;
+                float: left;
+                height: 54px;
+                width: 25%;
+                -webkit-box-sizing: border-box;
+                box-sizing: border-box;
+            }
+            ul.colour-picker li[data-colour="teal"] {
+                background: #2B9;
+            }
+            ul.colour-picker li[data-colour="green"] {
+                background: #3C7;
+            }
+            ul.colour-picker li[data-colour="yellow"] {
+                background: #EC1;
+            }
+            ul.colour-picker li[data-colour="orange"] {
+                background: #E82;
+            }
+            ul.colour-picker li[data-colour="red"] {
+                background: #E54;
+            }
+            ul.colour-picker li[data-colour="blue"] {
+                background: #39D;
+            }
+            ul.colour-picker li[data-colour="dark-blue"] {
+                background: #345;
+            }
+            ul.colour-picker li[data-colour="white"] {
+                background: #FFF;
+            }
+            ul.colour-picker li.active:before {
+                position: absolute;
+                height: 100%;
+                width: 100%;
+                background: rgba(0,0,0,0.1);
+                content: "";
+            }
+
+            @-webkit-keyframes pulse {
+                0% {
+                    background-color: #CCC;
+                }
+                25% {
+                    background-color: #EEE;
+                }
+                50% {
+                    background-color: #CCC;
+                }
+                75% {
+                    background-color: #EEE;
+                }
+                100% {
+                    background-color: #CCC;
+                }
+            }
+            .scroll-page .loading {
+                margin: 12px auto;
+                border: 8px solid #AAA;
+                height: 16px;
+                width: 16px;
+                background: #CCC;
+                border-radius: 16px;
+                -webkit-animation: pulse 2s ease-in-out 0s infinite;
+            }
+        </style>
+    </head>
+
+    
+    <body>
+    <!-- Script Tampilan Start-->
+        <!-- Main HomePage Start  #1 -->
+        <div class="app-page" data-page="homepage">
+                <div class="app-topbar">
+                <div class="app-title">e-Catalog Mobile SLiMS<span class="app-icon"></span></div>
+                <div class="right app-button app-menu"></div>
+            </div>
+            <div class="app-content">
+
+                <div class="app-section1">
+                    <img align="center" src="img/logo.png">
+                </div>
+
+
+                <div class="app-section1">
+                    Selamat datang pada aplikasi e-Catalog Mobile Online Perpustakaan Universitas Sahid Jakarta.
+                    <br><br>
+                    Silahkan masukkan judul buku yang ingin cari pada kolom pencarian di bawah ini. 
+                </div>
+
+                <div class="app-section"> 
+                    <input class="app-input" type="search" placeholder="Search..">
+                    <div class="app-button blue"  data-target="result">Cari Buku</div>
+                    <br>
+                    <div class="app-button blue"  data-target="detail">Detail</div>
+                    <div class="app-button blue"  data-target="maps">Peta</div>
+                    <div class="app-button blue"  data-target="setting">Pengaturan</div>
+                    <div class="app-button blue"  data-target="about">Tentang Aplikasi</div>
+                    <div class="app-button blue"  data-target="help">Bantuan</div>
+                </div>
+                
+
+                <br>
+                <p align="center">
+                    <font size="2" color="blue">e-Catalog V.14.0.1 Alpha</font><br>
+                </p>
+                <br>
+            </div>
+        </div>
+        <!-- Main HomePage End  #1 -->
+
+
+
+        <!-- Page Result Searching Book Start #2 -->
+        <div class="app-page scroll-page" data-page="result">
+            <div class="app-topbar">
+                <div class="left app-button" data-back></div>
+                <div class="app-title"><span class="app-icon"></span>Scrolling</div>
+            </div>
+            <div class="app-content">
+                <div class="loading"></div>
+                <ul class="app-list">
+                    <li>Judul Buku <span></span></li>
+                </ul>
+            </div>
+        </div>
+        <!-- Page Result Searching Book End #2 -->
+
+
+        <!-- Page Detail Information Book Start #3 -->
+        <div class="app-page" data-page="detail">
+            <div class="app-topbar">
+                <div class="left app-button" data-back></div>
+                <div class="app-title"><span class="app-icon"></span>Informasi Buku</div>
+            </div>
+
+            <div class="app-content">
+                
+                    <div class="app-section1">
+                        <img align="center" src="img/logo.png">
+                    </div>
+
+                    <div class="app-section">
+                        <li><i><b>Judul</b></i></li>
+                        <label>Judul</label>
+                    </div>
+
+                    <div class="app-section">
+                        <li><i><b>Pengarang</b></i></li>
+                        <label>Pengarang</label>                     
+                    </div>
+
+                    <div class="app-section">
+                        <li><i><b>Edisi</b></i></li>
+                        <label>Edisi</label>  
+                    </div>
+
+                    <div class="app-section">
+                        <li><i><b>Nomor Panggil</b></i></li>
+                        <label>Nomor Panggil</label>
+                    </div>
+
+                    <div class="app-section">
+                        <li><i><b>ISBN/ISSN</b></i></li>
+                        <label>ISBN/ISSN</label>
+                    </div>
+
+                    <div class="app-section">
+                        <li><i><b>Klasifikasi</b></i></li>
+                        <label>Klasifikasi</label>
+                    </div>
+
+                    <div class="app-section">
+                        <li><i><b>Bahasa</b></i></li>
+                        <label>Bahasa</label>
+                    </div>
+
+                    <div class="app-section">
+                        <li><i><b>Penerbit</b></i></li>
+                        <label>Penerbit</label>
+                    </div>
+
+                    <div class="app-section">
+                        <li><i><b>Tahun Terbit</b></i></li>
+                        <label>Tahun Terbit</label>
+                    </div>
+
+                    <div class="app-section">
+                        <li><i><b>Tempat Terbit</b></i></li>
+                        <label>Tempat Terbit</label>
+                    </div>
+
+                    <div class="app-section">
+                        <li><i><b>Deskripsi Fisik</b></i></li>                        
+                        <label>Deskripsi Fisik</label>
+                    </div>
+
+                    <div class="app-section">
+                        <li><i><b>Info Detil Spesifik</b></i></li>
+                        <label>Info Detil Spesifik</label>
+                    </div>
+
+                    <div class="app-section">
+                        <li><i><b>Ketersediaan</b></i></li>
+                        <label>Ketersediaan</label>
+                    </div>
+
+                    <div class="app-section">
+                        <li><i><b>Lampiran</b></i></li>
+                        <label>Lampiran</label>
+                    </div>
+
+                    <div></div>
+                    <p align="center">
+                        <font size="2" color="blue">e-Catalog V.14.0.1 Alpha</font><br>
+                    </p>
+                
+            </div>
+        </div>
+        <!-- Page Detail Information Book Start #3 -->
+
+    
+    
+        
+    <!-- Side Navigation Menu Bar Start-->
+        
+        <!-- Page Maps Start #4 -->
+        <div class="app-page" data-page="maps">
+            <div class="app-topbar">
+                <div class="left app-button" data-back></div>
+                <div class="app-title"><span class="app-icon"></span>Peta</div>
+            </div>           
+            <div class="app-content">
+
+                            
+            </div>
+        </div>
+        <!-- Page Maps End #4 -->
+
+
+        <!-- Page Setting Colour Start #5 -->
+        <div class="app-page" data-page="setting">
+            <div class="app-topbar">
+                <div class="left app-button" data-back></div>
+                <div class="app-title"><span class="app-icon"></span>Pengaturan</div>
+            </div>
+          
+           <div class="app-section">
+                    <b>Pilih Tema Warna : </b><br>
+                    <ul class="colour-picker">
+                        <li data-colour="teal"></li>
+                        <li data-colour="green"></li>
+                        <li data-colour="yellow"></li>
+                        <li data-colour="orange"></li>
+                        <li data-colour="red"></li>
+                        <li data-colour="blue"></li>
+                        <li data-colour="dark-blue"></li>
+                        <li data-colour="white"></li>
+                        <div class="clear"></div>
+                    </ul>
+                </div>
+        </div>
+        <!-- Page Setting Colour End #5 -->
+
+        <!-- Page About start #6 -->
+        <div class="app-page" data-page="about">
+            <div class="app-topbar">
+                <div class="left app-button" data-back></div>
+                <div class="app-title"><span class="app-icon"></span>Tentang Aplikasi</div>
+            </div>           
+            <div class="app-content">
+
+                
+            </div>
+        </div>
+        <!-- Page About End #6 -->
+
+
+        <!-- Page Help start #7-->
+        <div class="app-page" data-page="help">
+            <div class="app-topbar">
+                <div class="left app-button" data-back></div>
+                <div class="app-title"><span class="app-icon"></span>Bantuan</div>
+            </div>           
+            <div class="app-content">
+
+                
+            </div>
+        </div>
+        <!-- Page Help #7 -->
+
+
+
+    <!-- Side Navigation Menu Bar End -->
+   
+
+
+    <!-- input script javascript di sini -->
+                <script src="js/zepto.min.js"></script>
+                <script src="js/swapper.js"></script>
+                <script src="js/clickable.js"></script>
+                <script src="js/scrollable.js"></script>
+                <script src="js/app.js"></script>
+                <script src="js/utils.js"></script>
+                <script src="js/events.js"></script>
+                <script src="js/metrics.js"></script>
+                <script src="js/dialog.js"></script>
+                <script src="js/form.js"></script>
+                <script src="js/scroll.js"></script>
+                <script src="js/scroll-fix.js"></script>
+                <script src="js/pages.js"></script>
+                <script src="js/stack.js"></script>
+                <script src="js/transitions.js"></script>
+                <script src="js/navigation.js"></script>
+        
+                <script>
+                    var COLOUR_KEY = '__BASIC_APP_COLOUR__';
+
+                    var colourPages = [],
+                        colour      = localStorage[COLOUR_KEY] || 'teal';
+
+                    function setupPageColour(page) {
+                        var $topbar = $(page).find('.app-topbar');
+                        colourPages.push($topbar);
+                        if (colour) {
+                            $topbar.addClass(colour);
+                        }
+                    }
+
+
+                    App.controller('setting', function (page) {
+                        setupPageColour(page);
+
+                        $(page).find('[data-target="inputs"]')
+                            .attr('data-target', null)
+                            .stickyClick(function (unlock) {
+                                App.pick('inputs', function (params) {
+                                    console.log(JSON.stringify(params));
+                                    unlock();
+                                });
+                            });
+
+                        $(page).find('ul.colour-picker li')
+                            .clickable()
+                            .on('click', function () {
+                                var oldColour = colour;
+                                colour = $(this).data('colour');
+
+                                if (oldColour === colour) {
+                                    return;
+                                }
+                                localStorage[COLOUR_KEY] = colour;
+
+                                for (var i=0; i<colourPages.length; i++) {
+                                    if (oldColour) {
+                                        colourPages[i].removeClass(oldColour);
+                                    }
+                                    if (colour) {
+                                        colourPages[i].addClass(colour);
+                                    }
+                                }
+                            });
+                    });
+
+                    App.controller('lists', function (page) {
+                        setupPageColour(page);
+
+                        this.onShow = function () {
+                            console.log('lists page is visible');
+                        };
+
+                        this.onHide = function () {
+                            console.log('lists page is invisible');
+                        };
+
+                        this.onBack = function () {
+                            console.log('lists page is going back');
+                        };
+
+                        this.onForward = function () {
+                            console.log('lists page is going forward');
+                        };
+                    });
+
+                    /* Scricpt Tambahan Start */
+
+                        /* Page homepage Start*/
+                        App.controller('homepage', function (page) {
+                            setupPageColour(page);
+
+                            var $loading  = $(page).find('.loading'),
+                                $list     = $(page).find('.app-list'),
+                                $listItem = $(page).find('.app-list li'),
+                                i = 1;
+
+                            $loading.remove();
+                            $listItem.remove();
+
+                            App.infiniteScroll($list, { loading: $loading }, function (callback) {
+                                if (i >= 40) {
+                                    return null;
+                                }
+                                setTimeout(function () {
+                                    var list = [];
+                                    for (var j=0; j<12; j++) {
+                                        var $node = $listItem.clone();
+                                        $node.find('span').text(i+j);
+                                        list.push($node);
+                                    }
+                                    i += 12;
+                                    callback(list);
+                                }, 1200);
+                            });
+                        });
+                        /* Page homepage end */
+
+
+                        /* Page Result Start */
+                        App.controller('result', function (page) {
+                            setupPageColour(page);
+
+                            var $loading  = $(page).find('.loading'),
+                                $list     = $(page).find('.app-list'),
+                                $listItem = $(page).find('.app-list li'),
+                                i = 1;
+
+                            $loading.remove();
+                            $listItem.remove();
+
+                            App.infiniteScroll($list, { loading: $loading }, function (callback) {
+                                if (i >= 40) {
+                                    return null;
+                                }
+                                setTimeout(function () {
+                                    var list = [];
+                                    for (var j=0; j<12; j++) {
+                                        var $node = $listItem.clone();
+                                        $node.find('span').text(i+j);
+                                        list.push($node);
+                                    }
+                                    i += 12;
+                                    callback(list);
+                                }, 1200);
+                            });
+                        });
+                        /* Page Result End */
+
+                        /* Page Detail Start */
+                        App.controller('detail', function (page) {
+                            setupPageColour(page);
+
+                            var $loading  = $(page).find('.loading'),
+                                $list     = $(page).find('.app-list'),
+                                $listItem = $(page).find('.app-list li'),
+                                i = 1;
+
+                            $loading.remove();
+                            $listItem.remove();
+
+                            App.infiniteScroll($list, { loading: $loading }, function (callback) {
+                                if (i >= 40) {
+                                    return null;
+                                }
+                                setTimeout(function () {
+                                    var list = [];
+                                    for (var j=0; j<12; j++) {
+                                        var $node = $listItem.clone();
+                                        $node.find('span').text(i+j);
+                                        list.push($node);
+                                    }
+                                    i += 12;
+                                    callback(list);
+                                }, 1200);
+                            });
+                        });
+                        /* Page Detail End */
+
+                        /* Page Maps Start */
+                        App.controller('maps', function (page) {
+                            setupPageColour(page);
+
+                            var $loading  = $(page).find('.loading'),
+                                $list     = $(page).find('.app-list'),
+                                $listItem = $(page).find('.app-list li'),
+                                i = 1;
+
+                            $loading.remove();
+                            $listItem.remove();
+
+                            App.infiniteScroll($list, { loading: $loading }, function (callback) {
+                                if (i >= 40) {
+                                    return null;
+                                }
+                                setTimeout(function () {
+                                    var list = [];
+                                    for (var j=0; j<12; j++) {
+                                        var $node = $listItem.clone();
+                                        $node.find('span').text(i+j);
+                                        list.push($node);
+                                    }
+                                    i += 12;
+                                    callback(list);
+                                }, 1200);
+                            });
+                        });
+                        /* Page Maps End */
+
+                        /* Page About Start */
+                        App.controller('about', function (page) {
+                            setupPageColour(page);
+
+                            var $loading  = $(page).find('.loading'),
+                                $list     = $(page).find('.app-list'),
+                                $listItem = $(page).find('.app-list li'),
+                                i = 1;
+
+                            $loading.remove();
+                            $listItem.remove();
+
+                            App.infiniteScroll($list, { loading: $loading }, function (callback) {
+                                if (i >= 40) {
+                                    return null;
+                                }
+                                setTimeout(function () {
+                                    var list = [];
+                                    for (var j=0; j<12; j++) {
+                                        var $node = $listItem.clone();
+                                        $node.find('span').text(i+j);
+                                        list.push($node);
+                                    }
+                                    i += 12;
+                                    callback(list);
+                                }, 1200);
+                            });
+                        });
+                        /* Page About Start */
+
+                        /* Page Help Start */
+                        App.controller('help', function (page) {
+                            setupPageColour(page);
+
+                            var $loading  = $(page).find('.loading'),
+                                $list     = $(page).find('.app-list'),
+                                $listItem = $(page).find('.app-list li'),
+                                i = 1;
+
+                            $loading.remove();
+                            $listItem.remove();
+
+                            App.infiniteScroll($list, { loading: $loading }, function (callback) {
+                                if (i >= 40) {
+                                    return null;
+                                }
+                                setTimeout(function () {
+                                    var list = [];
+                                    for (var j=0; j<12; j++) {
+                                        var $node = $listItem.clone();
+                                        $node.find('span').text(i+j);
+                                        list.push($node);
+                                    }
+                                    i += 12;
+                                    callback(list);
+                                }, 1200);
+                            });
+                        });
+                        /* Page Help End */
+
+                    /* Scricpt Tambahan End */
+
+                    App.enableDragTransition();
+
+                    try {
+                        App.restore();
+                    } catch (err) {
+                        App.load('homepage');
+                    }
+                </script>
+
+        <!-- Script JS -->
+        <script src="js/kik.js"></script>
+        </body>
+</html>
